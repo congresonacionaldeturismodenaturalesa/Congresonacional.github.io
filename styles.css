@@ -33,7 +33,6 @@ section {
 
 /* Banner principal */
 .main-banner {
-  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') center center/cover no-repeat;
   color: white;
   min-height: 50vh; /* mejor que altura fija para adaptarse */
   display: flex;
@@ -41,6 +40,22 @@ section {
   justify-content: center;
   text-align: center;
   position: relative;
+}
+
+/* Fondo tipo carrusel en banner principal */
+.main-banner {
+  animation: cambio-fondo 25s infinite alternate;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes cambio-fondo {
+  0%   { background-image: url("foto1.jpg"); }
+  25%  { background-image: url("foto2.jpg"); }
+  50%  { background-image: url("foto3.jpg"); }
+  75%  { background-image: url("foto4.jpg"); }
+  100% { background-image: url("foto5.jpg"); }
 }
 
 .main-banner::after {
@@ -101,7 +116,7 @@ footer {
   z-index: 1000;
   background-color: #25D366;
   border-radius: 50%;
-  width: 50px;   /* tamaño base en escritorio */
+  width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -258,6 +273,7 @@ footer {
     min-height: 60vh;
   }
 }
+
 /* 🔧 Ajuste del título en móviles */
 @media (max-width: 576px) {
   .navbar-brand {
