@@ -139,7 +139,7 @@ footer {
 
 /* Logo en header */
 .header-logo {
-  height: 40px;
+  height: 45px;
   object-fit: contain;
 }
 
@@ -286,3 +286,4 @@ footer {
     height: 26px; /* logos más chicos en móviles */
   }
 }
+
