@@ -9,9 +9,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Estilos de galería y animación slide */
+    .galeria {
+      margin-top: 15px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .galeria.activa {
+      max-height: 1000px; /* Ajusta según contenido */
+      opacity: 1;
+    }
+
+    .galeria .imagenes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .galeria img {
+      width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Header y navegación -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white container">
       <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
@@ -25,33 +60,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto fw-semibold">
-          <li class="nav-item">
-            <a class="nav-link active" href="#inicio">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#sobre">Sobre el Congreso</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#historia">Historia</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#programa">Programa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#ponentes">Ponentes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contacto">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-primary ms-2" href="#inscripcion">Inscríbete</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre el Congreso</a></li>
+          <li class="nav-item"><a class="nav-link" href="#historia">Historia</a></li>
+          <li class="nav-item"><a class="nav-link" href="#programa">Programa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ponentes">Ponentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item"><a class="btn btn-primary ms-2" href="#inscripcion">Inscríbete</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
   <main>
+    <!-- Inicio -->
     <section id="inicio" class="main-banner d-flex align-items-center">
       <div class="banner-content mx-auto text-center">
         <p class="mb-2 fst-italic">Del <strong>27 al 29 de Noviembre de 2025</strong></p>
@@ -60,7 +82,8 @@
       </div>
     </section>
 
-    <section id="sobre" class="container">
+    <!-- Sobre el Congreso -->
+    <section id="sobre" class="container py-5">
       <h2 class="text-center mb-4">Sobre el Congreso</h2>
       <div class="row gy-4">
         <div class="col-md-4">
@@ -94,6 +117,14 @@
                 El Fuerte, Sinaloa.- Se inauguró el 1er Congreso de Turismo de Naturaleza en el Centro Intercultural para el Aprendizaje de la UAIM en Mochicahui, del 30 de noviembre al 2 de diciembre.
                 Contó con la participación del Lic. Domingo Vázquez, Director de Turismo Zona Norte, y la conferencia “El turismo de naturaleza, una oportunidad para emprender” por el Lic. Roberto Gámez.
               </p>
+              <button class="btn btn-outline-primary" onclick="toggleGaleria(1)">Ver galería</button>
+              <div id="galeria-1" class="galeria">
+                <div class="imagenes">
+                  <img src="1congre1.jpg" alt="Foto 1">
+                  <img src="1congre2.jpg" alt="Foto 2">
+                  <img src="1congre3.jpg" alt="Foto 3">
+                </div>
+              </div>
             </div>
           </div>
 
@@ -106,6 +137,17 @@
                 Realizado los días 29, 30 de noviembre y 1 de diciembre en el edificio CIPA de Mochicahui, El Fuerte, Sinaloa.
                 Incluyó la conferencia “Importancia de las Áreas Naturales Protegidas en el Ámbito Turístico” impartida por el Dr. Hugo Humberto Piña Ruiz.
               </p>
+              <button class="btn btn-outline-primary" onclick="toggleGaleria(2)">Ver galería</button>
+              <div id="galeria-2" class="galeria">
+                <div class="imagenes">
+                  <img src="2congre1.jpg" alt="Foto 1">
+                  <img src="2congre2.jpg" alt="Foto 2">
+                  <img src="2congre3.jpg" alt="Foto 3">
+                  <img src="2congre4.jpg" alt="Foto 4">
+                  <img src="2congre5.jpg" alt="Foto 5">
+                  <img src="2cogre6.jpg" alt="Foto 6">
+                </div>
+              </div>
             </div>
           </div>
 
@@ -118,6 +160,14 @@
                 Inaugurado en el auditorio del Instituto Politécnico Nacional en Los Mochis por la UAIM Unidad Mochicahui.
                 Contó con la presencia de Roberto Gámez Luque, Jefe del Departamento de Desarrollo Turístico en la Zona Norte.
               </p>
+              <button class="btn btn-outline-primary" onclick="toggleGaleria(3)">Ver galería</button>
+              <div id="galeria-3" class="galeria">
+                <div class="imagenes">
+                  <img src="3congre3.jpg" alt="Foto 1">
+                  <img src="3congre1.jpg" alt="Foto 2">
+                  <img src="3congre2.jpg" alt="Foto 3">
+                </div>
+              </div>
             </div>
           </div>
 
@@ -131,13 +181,13 @@
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card shadow-sm h-100">
-            <img src="topo.jpg" class="card-img-top img-fluid" alt="Topolobampo" loading="lazy" decoding="async">
+            <img src="topo.jpg" class="card-img-top img-fluid" alt="Topolobampo">
             <div class="card-body">
               <h5 class="card-title">Topolobampo</h5>
               <h5 class="card-title">Jueves 27 de Noviembre</h5>
               <ul class="list-unstyled">
                 <li><strong>08:30:</strong> Registro</li>
-                <li><strong>09:00:</strong> inauguración</li>
+                <li><strong>09:00:</strong> Inauguración</li>
                 <li><strong>09:30:</strong> Conferencia magistral</li>
                 <li><strong>11:00:</strong> Panel de Expertos</li>
                 <li><strong>14:00:</strong> Traslado a Topolobampo</li>
@@ -150,17 +200,19 @@
 
         <div class="col-md-4">
           <div class="card shadow-sm h-100">
-            <img src="mochicahui.jpeg" class="card-img-top img-fluid" alt="Mochicahui" loading="lazy" decoding="async">
+            <img src="mochicahui.jpeg" class="card-img-top img-fluid" alt="Mochicahui">
             <div class="card-body">
               <h5 class="card-title">Mochicahui</h5>
               <h5 class="card-title">Jueves 27 de Noviembre</h5>
               <ul class="list-unstyled">
                 <li><strong>18:00 :</strong> Llegada a Mochicahui</li>
                 <li><strong>19:00 - 22:00 :</strong> Fiesta Rompehielos y convivencia</li>
-                <h5 class="card-title">Viernes 28 de Noviembre</h5>
-                <li><strong>8:30 :</strong> Registro</li>
-                <li><strong>9:00 :</strong> Bienvenida</li>
-                <li><strong>9:30 :</strong> Conferencia</li>
+              </ul>
+              <h5 class="card-title">Viernes 28 de Noviembre</h5>
+              <ul class="list-unstyled">
+                <li><strong>08:30 :</strong> Registro</li>
+                <li><strong>09:00 :</strong> Bienvenida</li>
+                <li><strong>09:30 :</strong> Conferencia</li>
                 <li><strong>11:00 :</strong> Panel de Expertos</li>
                 <li><strong>12:30 :</strong> Receso</li>
                 <li><strong>13:00 :</strong> Comida</li>
@@ -175,15 +227,15 @@
 
         <div class="col-md-4">
           <div class="card shadow-sm h-100">
-            <img src="choix.jpeg" class="card-img-top img-fluid" alt="Talleres UAIM" loading="lazy" decoding="async">
+            <img src="choix.jpeg" class="card-img-top img-fluid" alt="Talleres UAIM">
             <div class="card-body">
-              <h5 class="card-title">Choix </h5>
-              <h5 class="card-title">Sabado 29 de Noviembre</h5>
+              <h5 class="card-title">Choix</h5>
+              <h5 class="card-title">Sábado 29 de Noviembre</h5>
               <ul class="list-unstyled">
-                <li><strong>:</strong> Cañonismo Tour La Poza</li>
-                 <li><strong>:</strong> Ciclotour Santa Anna-Baymena</li>
-                 <li><strong>:</strong> Taller Gastronómico</li>
-                 <li><strong>:</strong> Taller de Artesanías</li>
+                <li><strong>08:00 :</strong> Cañonismo Tour La Poza</li>
+                <li><strong>09:00 :</strong> Ciclotour Santa Anna-Baymena</li>
+                <li><strong>10:00 :</strong> Taller Gastronómico</li>
+                <li><strong>11:00 :</strong> Taller de Artesanías</li>
               </ul>
             </div>
           </div>
@@ -197,7 +249,7 @@
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card shadow-sm">
-            <img src="#" class="card-img-top img-fluid" alt="Dra Ana Gómez" loading="lazy" decoding="async" />
+            <img src="#" class="card-img-top img-fluid" alt="Dra Ana Gómez" />
             <div class="card-body">
               <h5 class="card-title">Dra. Ana Gómez</h5>
               <p class="card-text">Investigadora en Turismo Sostenible.</p>
@@ -206,7 +258,7 @@
         </div>
         <div class="col-md-4">
           <div class="card shadow-sm">
-            <img src="#" class="card-img-top img-fluid" alt="Lic Carlos Martínez" loading="lazy" decoding="async" />
+            <img src="#" class="card-img-top img-fluid" alt="Lic Carlos Martínez" />
             <div class="card-body">
               <h5 class="card-title">Lic. Carlos Martínez</h5>
               <p class="card-text">Consultor Ambiental en turismo responsable.</p>
@@ -215,7 +267,7 @@
         </div>
         <div class="col-md-4">
           <div class="card shadow-sm">
-            <img src="#" class="card-img-top img-fluid" alt="Mtra Laura Sánchez" loading="lazy" decoding="async" />
+            <img src="#" class="card-img-top img-fluid" alt="Mtra Laura Sánchez" />
             <div class="card-body">
               <h5 class="card-title">Mtra. Laura Sánchez</h5>
               <p class="card-text">Especialista en proyectos comunitarios y educación ambiental.</p>
@@ -230,7 +282,7 @@
       <div class="container text-center">
         <h2>¡Inscríbete hoy!</h2>
         <p class="mb-4 fs-5">Asegura tu lugar en el 4to Congreso Nacional de Turismo de Naturaleza.</p>
-        <a href="#" class="btn btn-light btn-lg">Inscribete</a>
+        <a href="#" class="btn btn-light btn-lg">Inscríbete</a>
       </div>
     </section>
 
@@ -238,98 +290,99 @@
     <section id="contacto" class="container py-5">
       <h2 class="text-center mb-5">Contacto</h2>
       <div class="row g-4">
-        <!-- Información -->
         <div class="col-md-6">
           <h5>Información de contacto</h5>
           <ul class="list-unstyled">
-            <li><strong>Teléfono:</strong> (668) 1763446
-(668) 1763449</li>
+            <li><strong>Teléfono:</strong> (668) 1763446, (668) 1763449</li>
             <li><strong>Email:</strong> contacto@uaim.edu.mx</li>
-            <li><strong>Dirección:</strong> 
-Prolongación 5 de Mayo S/N
-Ejido Poblado de Mochicahui
-El Fuerte, Sinaloa.
-C.P. 81890.</li>
+            <li><strong>Dirección:</strong> Prolongación 5 de Mayo S/N, Ejido Poblado de Mochicahui, El Fuerte, Sinaloa, C.P. 81890.</li>
           </ul>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.203320988419!2d-108.92267808454063!3d25.933003783595503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ba2b325ccf6a85%3A0xe39d0a0cfbba4c29!2sUAIM%20Unidad%20Mochicahui!5e0!3m2!1ses-419!2smx!4v1721672125846!5m2!1ses-419!2smx"
-            width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            width="100%" height="300" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
-        <!-- Botones de WhatsApp -->
         <div class="col-md-6">
           <h5>Contacto por WhatsApp</h5>
           <div class="d-flex flex-column gap-3 mt-3">
-            <a href="https://wa.me/5216681513419" target="_blank" class="btn btn-success d-flex align-items-center p-3" rel="noopener">
+            <a href="https://wa.me/5216681513419" target="_blank" class="btn btn-success d-flex align-items-center p-3">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-                   alt="WhatsApp" style="width:28px; height:28px;" class="me-2" loading="lazy" decoding="async">
-              Unidad Topolobampo
+                   alt="WhatsApp" style="width:28px; height:28px;" class="me-2">Unidad Topolobampo
             </a>
-            <a href="https://wa.me/5216681240400" target="_blank" class="btn btn-success d-flex align-items-center p-3" rel="noopener">
+            <a href="https://wa.me/5216681240400" target="_blank" class="btn btn-success d-flex align-items-center p-3">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-                   alt="WhatsApp" style="width:28px; height:28px;" class="me-2" loading="lazy" decoding="async">
-              Unidad Mochicahui
+                   alt="WhatsApp" style="width:28px; height:28px;" class="me-2">Unidad Mochicahui
             </a>
-            <a href="https://wa.me/5216988609836" target="_blank" class="btn btn-success d-flex align-items-center p-3" rel="noopener">
+            <a href="https://wa.me/5216988609836" target="_blank" class="btn btn-success d-flex align-items-center p-3">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-                   alt="WhatsApp" style="width:28px; height:28px;" class="me-2" loading="lazy" decoding="async">
-              Unidad Choix
+                   alt="WhatsApp" style="width:28px; height:28px;" class="me-2">Unidad Choix
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer con logos pequeños -->
+    <!-- Footer -->
     <footer class="bg-light pt-4">
       <div class="container text-center">
-        <!-- Logos -->
         <div class="d-flex justify-content-center gap-4 mb-3 flex-wrap">
-          <img src="logo_uaim.png" alt="UAIM" class="img-fluid" style="height:40px; object-fit:contain;" loading="lazy" decoding="async">
-          <img src="logo_turismo.png" alt="Turismo Sinaloa" class="img-fluid" style="height:40px; object-fit:contain;" loading="lazy" decoding="async">
-          <img src="ahome.png" alt="Ahome" class="img-fluid" style="height:60px; object-fit:contain;" loading="lazy" decoding="async">
-          <img src="fuerte.png" alt="El Fuerte" class="img-fluid" style="height:70px; object-fit:contain;" loading="lazy" decoding="async">
-          <img src="choixg.png" alt="choix" class="img-fluid" style="height:70px; object-fit:contain;" loading="lazy" decoding="async">
-          <img src="codesin.png" alt="codesin" class="img-fluid" style="height:30px; object-fit:contain;" loading="lazy" decoding="async">
-          <img src="turismosin.png" alt="turismo" class="img-fluid" style="height:40px; object-fit:contain;" loading="lazy" decoding="async">
+          <img src="logo_uaim.png" alt="UAIM" class="img-fluid" style="height:40px; object-fit:contain;">
+          <img src="logo_turismo.png" alt="Turismo Sinaloa" class="img-fluid" style="height:40px; object-fit:contain;">
+          <img src="ahome.png" alt="Ahome" class="img-fluid" style="height:60px; object-fit:contain;">
+          <img src="fuerte.png" alt="El Fuerte" class="img-fluid" style="height:70px; object-fit:contain;">
+          <img src="choixg.png" alt="choix" class="img-fluid" style="height:70px; object-fit:contain;">
+          <img src="codesin.png" alt="codesin" class="img-fluid" style="height:30px; object-fit:contain;">
+          <img src="turismosin.png" alt="turismo" class="img-fluid" style="height:40px; object-fit:contain;">
         </div>
       </div>
     </footer>
-
-    <!-- Segundo footer () -->
     <footer>
       <div class="container text-center">
         <p>© 2025 Universidad Autónoma Indígena de México - Congreso Nacional de Turismo de Naturaleza</p>
       </div>
     </footer>
-
   </main>
 
-  <!-- Botón flotante de WhatsApp (optimizado, pequeño y fijo) -->
-  <a href="https://wa.me/5216681240400" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp" aria-label="Contáctanos por WhatsApp" rel="noopener">
-    <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp" loading="lazy" decoding="async">
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/5216681240400" class="whatsapp-float" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
   </a>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-<script>
-  document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
-    link.addEventListener('click', function () {
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-      if (navbarCollapse.classList.contains('show')) {
-        new bootstrap.Collapse(navbarCollapse).toggle();
-      }
+  <script>
+    // Navbar colapsable en móvil
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarCollapse.classList.contains('show')) {
+          new bootstrap.Collapse(navbarCollapse).toggle();
+        }
+      });
     });
-  });
-</script>
 
+    // Galerías acordeón con slide y cambio de texto
+    function toggleGaleria(num) {
+      const galerias = document.querySelectorAll('.galeria');
+      const botones = document.querySelectorAll('.timeline-content button');
 
+      galerias.forEach((g, i) => {
+        if (i + 1 === num) {
+          if (g.classList.contains('activa')) {
+            g.classList.remove('activa');
+            botones[i].innerText = "Ver galería";
+          } else {
+            galerias.forEach(g2 => g2.classList.remove('activa'));
+            botones.forEach(b => b.innerText = "Ver galería");
+            g.classList.add('activa');
+            botones[i].innerText = "Ocultar galería";
+          }
+        } else {
+          g.classList.remove('activa');
+          botones[i].innerText = "Ver galería";
+        }
+      });
+    }
+  </script>
+</body>
 </html>
-
-
-
-
-
-
-
