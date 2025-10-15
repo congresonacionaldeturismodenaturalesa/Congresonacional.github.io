@@ -1,10 +1,12 @@
-/* Estilos generales */
+/* =======================================================
+   🔹 ESTILOS GENERALES
+   ======================================================= */
 body {
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
 }
 
-/* 🔁 Imágenes siempre fluidas y sin deformarse */
+/* Imágenes siempre fluidas */
 img {
   max-width: 100%;
   height: auto;
@@ -31,19 +33,17 @@ section {
   scroll-margin-top: 80px;
 }
 
-/* Banner principal */
+/* =======================================================
+   🔹 BANNER PRINCIPAL
+   ======================================================= */
 .main-banner {
   color: white;
-  min-height: 50vh; /* mejor que altura fija para adaptarse */
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
-}
-
-/* Fondo tipo carrusel en banner principal */
-.main-banner {
   animation: cambio-fondo 25s infinite alternate;
   background-size: cover;
   background-position: center;
@@ -82,15 +82,15 @@ section {
   font-size: 1.2rem;
 }
 
-/* Programa del evento y Ponentes */
-#programa .card img,
-#ponentes .card img {
+/* =======================================================
+   🔹 PROGRAMA DEL EVENTO
+   ======================================================= */
+#programa .card img {
   height: 200px;
   object-fit: cover;
 }
 
-#programa .card-title,
-#ponentes .card-title {
+#programa .card-title {
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -99,7 +99,71 @@ section {
   margin-bottom: 0.5rem;
 }
 
-/* Footer */
+/* =======================================================
+   🔹 PONENTES (TARJETAS MÁS PEQUEÑAS + SCROLL)
+   ======================================================= */
+#ponentes {
+  position: relative;
+  overflow: hidden;
+}
+
+#ponentes .ponentes-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  flex-wrap: nowrap;
+}
+
+#ponentes .ponentes-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+#ponentes .ponentes-scroll::-webkit-scrollbar-thumb {
+  background: #007bff;
+  border-radius: 10px;
+}
+
+#ponentes .card {
+  flex: 0 0 auto;
+  width: 230px;
+  border-radius: 12px;
+  scroll-snap-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#ponentes .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+#ponentes .card img {
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+#ponentes .card-body {
+  padding: 0.8rem;
+}
+
+#ponentes .card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+#ponentes .card-text {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* =======================================================
+   🔹 FOOTER
+   ======================================================= */
 footer {
   background: #f8f9fa;
   padding: 20px 0;
@@ -108,7 +172,9 @@ footer {
   color: #6c757d;
 }
 
-/* Botón flotante WhatsApp — tamaño pequeño, fijo y adaptable */
+/* =======================================================
+   🔹 BOTÓN FLOTANTE WHATSAPP
+   ======================================================= */
 .whatsapp-float {
   position: fixed;
   bottom: 16px;
@@ -137,19 +203,25 @@ footer {
   display: block;
 }
 
-/* Logo en header */
+/* =======================================================
+   🔹 LOGO EN HEADER
+   ======================================================= */
 .header-logo {
   height: 45px;
   object-fit: contain;
 }
 
-/* Accordion */
+/* =======================================================
+   🔹 ACCORDION
+   ======================================================= */
 .accordion-button:not(.collapsed) {
   background-color: #e6f2ff;
   font-weight: 600;
 }
 
-/* Botón Inscríbete */
+/* =======================================================
+   🔹 BOTÓN INSCRÍBETE
+   ======================================================= */
 .btn-primary {
   background-color: #007bff;
   border: none;
@@ -160,39 +232,9 @@ footer {
   background-color: #0056b3;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .main-banner h1 {
-    font-size: 2rem;
-  }
-
-  .main-banner p {
-    font-size: 1rem;
-  }
-
-  .header-logo {
-    height: 30px;
-  }
-
-  /* WhatsApp más compacto en móviles */
-  .whatsapp-float {
-    width: 44px;
-    height: 44px;
-    bottom: 14px;
-    right: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .whatsapp-float {
-    width: 40px;
-    height: 40px;
-    bottom: 12px;
-    right: 8px;
-  }
-}
-
-/* Timeline - Historia de Congresos */
+/* =======================================================
+   🔹 TIMELINE - HISTORIA DE CONGRESOS
+   ======================================================= */
 .timeline {
   position: relative;
   padding: 2rem 0;
@@ -249,11 +291,55 @@ footer {
   line-height: 1.6;
 }
 
-/* Responsivo para timeline */
+/* =======================================================
+   🔹 RESPONSIVO
+   ======================================================= */
+@media (max-width: 768px) {
+  .main-banner h1 {
+    font-size: 2rem;
+  }
+
+  .main-banner p {
+    font-size: 1rem;
+  }
+
+  .header-logo {
+    height: 30px;
+  }
+
+  /* WhatsApp más compacto */
+  .whatsapp-float {
+    width: 44px;
+    height: 44px;
+    bottom: 14px;
+    right: 10px;
+  }
+
+  /* Ponentes más pequeños */
+  #ponentes .card {
+    width: 200px;
+  }
+
+  #ponentes .card img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 40px;
+    height: 40px;
+    bottom: 12px;
+    right: 8px;
+  }
+}
+
+/* Timeline en móvil */
 @media (max-width: 576px) {
   .timeline::before {
     left: 10px;
   }
+
   .timeline-icon {
     left: -6px;
     width: 32px;
@@ -261,9 +347,21 @@ footer {
     font-size: 1rem;
     line-height: 32px;
   }
+
   .timeline-content {
     margin-left: 50px;
     padding: 0.8rem;
+  }
+
+  /* Ajuste del título */
+  .navbar-brand {
+    font-size: 14px;
+    white-space: normal;
+    line-height: 1.2;
+  }
+
+  .navbar-brand img {
+    height: 26px;
   }
 }
 
@@ -273,17 +371,3 @@ footer {
     min-height: 60vh;
   }
 }
-
-/* 🔧 Ajuste del título en móviles */
-@media (max-width: 576px) {
-  .navbar-brand {
-    font-size: 14px;       /* más pequeño */
-    white-space: normal;   /* permite salto de línea */
-    line-height: 1.2;      /* mejor separación entre líneas */
-  }
-
-  .navbar-brand img {
-    height: 26px; /* logos más chicos en móviles */
-  }
-}
-
